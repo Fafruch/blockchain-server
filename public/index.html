@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Metamask website</title>
+</head>
+<body>
+
+<h1>Hello Metamask!</h1>
+<ul class="blocks__list"></ul>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    if (window.web3) {
+      window.web3 = new Web3(web3.currentProvider)
+      start()
+    } else {
+      alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+    }
+  })
+
+  let lastFetchedLatestBlockNumber = null
+
+  start(lastFetchedLatestBlockNumber)
+
+  function start(lastFetchedLatestBlockNumber) {
+    let latestBlockNumber = null
+
+    web3.eth.getBlockNumber((err, res) => {
+      if (err) {
+        console.error(err)
+      }
+
+      latestBlockNumber = res
+
+      if (latestBlockNumber === lastFetchedLatestBlockNumber) {
+        return
+      }
+
+      for (let i = 0; i < 10; i++) {
+        if (latestBlockNumber) {
+          const requestBlockNumber = latestBlockNumber - i
+
+          web3.eth.getBlock(requestBlockNumber, (err, block) => {
+            console.log('block', err, block)
+            if (err) {
+              console.error(err)
+            }
+
+            document.querySelector('.blocks__list').innerHTML +=
+              `<li>#${block.number} (Hash: ${block.hash.substr(0, 6)}..${block.hash.substr(-4)}, parent hash: ${block.parentHash.substr(0, 6)}..${block.parentHash.substr(-4)})</li>`
+          })
+        }
+      }
+
+      lastFetchedLatestBlockNumber = latestBlockNumber
+
+      setTimeout(() => start(lastFetchedLatestBlockNumber), 2500)
+    })
+  }
+</script>
+</body>
+</html>

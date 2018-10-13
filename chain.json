@@ -1,0 +1,165 @@
+{
+  "name": "TestBasicAuthority",
+  "engine": {
+    "authorityRound": {
+      "params": {
+        "stepDuration": "6",
+        "validators": {
+          "list": [
+            "00a88fc3b3a86793de59c886e20b320a057a5723"
+          ]
+        },
+        "immediateTransitions": true,
+        "emptyStepsTransition": "1",
+        "maximumEmptySteps": "10"
+      }
+    }
+  },
+  "params": {
+    "gasLimitBoundDivisor": "0x0400",
+    "accountStartNonce": "0x0100000",
+    "maximumExtraDataSize": "0x20",
+    "minGasLimit": "0x1388",
+    "networkID": "0x69",
+    "eip150Transition": 0,
+    "eip160Transition": 0,
+    "eip161abcTransition": 0,
+    "eip161dTransition": 0,
+    "eip155Transition": 0,
+    "eip98Transition": 0,
+    "eip140Transition": 0,
+    "eip211Transition": 0,
+    "eip214Transition": 0,
+    "eip658Transition": 0,
+    "eip145Transition": 0,
+    "eip1014Transition": 0,
+    "eip1052Transition": 0,
+    "eip1283Transition": 0
+  },
+  "nodes": [
+    "enode://90d8d0d9c47fd3f654b16f62b23dc132ee840dfecd712449d50e95d02af1889dc1a76a9d313a314c0b8ea6d66a9e9847aad1b6e8fdf24bdc70b5bb267553dcba@138.201.178.161:30303"
+  ],
+  "genesis": {
+    "seal": {
+      "authorityRound": {
+        "step": "0x0",
+        "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "difficulty": "0x20000",
+    "author": "0x0000000000000000000000000000000000000000",
+    "timestamp": "0x00",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x",
+    "gasLimit": "0x2fefd8"
+  },
+  "accounts": {
+    "0000000000000000000000000000000000000001": {
+      "balance": "1",
+      "nonce": "1048576",
+      "builtin": {
+        "name": "ecrecover",
+        "pricing": {
+          "linear": {
+            "base": 3000,
+            "word": 0
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000002": {
+      "balance": "1",
+      "nonce": "1048576",
+      "builtin": {
+        "name": "sha256",
+        "pricing": {
+          "linear": {
+            "base": 60,
+            "word": 12
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000003": {
+      "balance": "1",
+      "nonce": "1048576",
+      "builtin": {
+        "name": "ripemd160",
+        "pricing": {
+          "linear": {
+            "base": 600,
+            "word": 120
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000004": {
+      "balance": "1",
+      "nonce": "1048576",
+      "builtin": {
+        "name": "identity",
+        "pricing": {
+          "linear": {
+            "base": 15,
+            "word": 3
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000005": {
+      "balance": "1",
+      "builtin": {
+        "name": "modexp",
+        "activate_at": 0,
+        "pricing": {
+          "modexp": {
+            "divisor": 20
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000006": {
+      "balance": "1",
+      "builtin": {
+        "name": "alt_bn128_add",
+        "activate_at": 0,
+        "pricing": {
+          "linear": {
+            "base": 500,
+            "word": 0
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000007": {
+      "balance": "1",
+      "builtin": {
+        "name": "alt_bn128_mul",
+        "activate_at": 0,
+        "pricing": {
+          "linear": {
+            "base": 40000,
+            "word": 0
+          }
+        }
+      }
+    },
+    "0000000000000000000000000000000000000008": {
+      "balance": "1",
+      "builtin": {
+        "name": "alt_bn128_pairing",
+        "activate_at": 0,
+        "pricing": {
+          "alt_bn128_pairing": {
+            "base": 100000,
+            "pair": 80000
+          }
+        }
+      }
+    },
+    "00a88fc3b3a86793de59c886e20b320a057a5723": {
+      "balance": "1606938044258990275541962092341162602522202993782792835301376",
+      "nonce": "1048576"
+    }
+  }
+}

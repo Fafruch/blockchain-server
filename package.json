@@ -1,0 +1,23 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fafruch/blockchain-server.git"
+  },
+  "author": "Fafruch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fafruch/blockchain-server/issues"
+  },
+  "homepage": "https://github.com/Fafruch/blockchain-server#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "web3": "^1.0.0-beta.36"
+  }
+}
